@@ -3,243 +3,186 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>솔로투어 | Social Friends Vietnam</title>
-  <meta name="description" content="부담 없이 즐기는 따뜻한 분위기의 베트남 맞선투어. 강요 없는 자연스러운 동행과 로컬 문화 교류." />
-  <meta property="og:title" content="솔로투어 | Social Friends Vietnam" />
-  <meta property="og:description" content="자유롭고 따뜻한 분위기의 베트남 맞선투어" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.example" />
-  <meta property="og:image" content="https://your-domain.example/og.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>SoloTour | 솔로투어</title>
+  <meta name="description" content="솔로투어 — 편하고 따뜻한 1:1 맞춤 여행 상담" />
+  <meta name="format-detection" content="telephone=no" />
+
   <style>
-    :root { --max: 1080px; --brand:#0f766e; --brand2:#115e59; }
-    *{box-sizing:border-box}
-    body{margin:0; font-family: 'Pretendard', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, sans-serif; color:#0f172a;}
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; height:auto; display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .btn{display:inline-block; padding:14px 18px; border-radius:12px; background:var(--brand); color:#fff; font-weight:700}
-    .btn.outline{background:transparent; color:var(--brand); border:2px solid var(--brand)}
-    header{position:sticky; top:0; z-index:30; backdrop-filter:saturate(1.2) blur(6px); background:rgba(255,255,255,.7); border-bottom:1px solid #e2e8f0}
-    header .inner{display:flex; align-items:center; justify-content:space-between; height:64px}
-    nav a{margin-left:18px; font-weight:600}
-    .hero{background:linear-gradient(120deg, #ecfeff, #f0fdfa); border-bottom:1px solid #e2e8f0}
-    .hero .inner{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:56px 0}
-    .kicker{letter-spacing:.08em; font-weight:700; color:#0ea5a4; text-transform:uppercase}
-    h1{font-size:44px; line-height:1.15; margin:10px 0 18px}
-    .lead{font-size:18px; color:#334155; margin-bottom:24px}
-    .hero .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .section{padding:56px 0}
-    .grid{display:grid; gap:16px}
-    .cols-3{grid-template-columns:repeat(3,1fr)}
-    .card{background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:18px; box-shadow:0 6px 18px rgba(2, 6, 23, .04)}
-    .price{font-weight:800; font-size:20px; color:var(--brand)}
-    .muted{color:#64748b}
-    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:#ecfeff; color:#0ea5a4; font-weight:700; font-size:12px}
-    .timeline{display:grid; gap:14px}
-    .tl{display:grid; grid-template-columns:84px 1fr; gap:14px; align-items:start}
-    .tl .dot{width:12px; height:12px; border-radius:999px; background:var(--brand); margin-top:6px}
-    .faq details{border:1px solid #e2e8f0; border-radius:12px; padding:14px 16px}
-    .faq details+details{margin-top:12px}
-    footer{background:#0b1514; color:#cbd5e1; padding:40px 0;}
-    .chips{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{background:#f1f5f9; border:1px solid #e2e8f0; border-radius:999px; padding:8px 12px; font-size:13px}
-    .cta-bar{position:fixed; right:16px; bottom:16px; display:flex; gap:12px; flex-direction:column}
-    .cta-bar a{box-shadow:0 6px 18px rgba(2,6,23,.18)}
-    @media (max-width: 880px){
-      .hero .inner{grid-template-columns:1fr}
-      .cols-3{grid-template-columns:1fr}
-      header .inner{height:60px}
+    :root{
+      --text:#161616;
+      --muted:#666;
+      --border:#eaeaea;
+      --brand:#0a84ff;
+      --kakao:#FEE500;
+      --kakao-hover:#FFD600;
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Malgun Gothic,sans-serif;color:var(--text);line-height:1.6}
+
+    /* 헤더/네비게이션 */
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:100}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:800;font-size:20px;letter-spacing:.2px;color:var(--text);text-decoration:none}
+    nav a{margin-left:18px;text-decoration:none;color:var(--text);font-weight:600;white-space:nowrap}
+    nav a:hover{color:var(--brand)}
+
+    /* 상단 메뉴의 카카오 노란 버튼 */
+    .kakao-top{
+      display:inline-block;
+      background:var(--kakao);
+      color:#000 !important;
+      padding:8px 14px;
+      border-radius:20px;
+      font-weight:800;
+      text-decoration:none;
+      margin-left:18px;
+    }
+    .kakao-top:hover{background:var(--kakao-hover)}
+
+    /* 히어로 */
+    .hero{padding:72px 20px 56px;border-bottom:1px solid var(--border);text-align:center}
+    .hero h1{margin:0 0 12px;font-size:40px;line-height:1.2}
+    .hero p{margin:0 auto 24px;color:var(--muted);max-width:720px}
+    .cta{
+      display:inline-block;background:var(--brand);color:#fff;text-decoration:none;
+      padding:12px 18px;border-radius:12px;font-weight:700
+    }
+    .cta:hover{filter:brightness(.95)}
+
+    /* 섹션 공통 */
+    section{padding:56px 0}
+    h2{margin:0 0 16px;font-size:28px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+
+    .card{border:1px solid var(--border);border-radius:14px;padding:20px}
+    .muted{color:var(--muted)}
+
+    /* FAQ */
+    details{border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* 푸터 */
+    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* 오른쪽 아래 플로팅 카카오 버튼 */
+    .kakao-float{
+      position:fixed;right:20px;bottom:20px;
+      background:var(--kakao);color:#000;text-decoration:none;
+      padding:12px 20px;border-radius:30px;font-weight:800;
+      box-shadow:0 6px 18px rgba(0,0,0,.15);z-index:1000
+    }
+    .kakao-float:hover{background:var(--kakao-hover)}
   </style>
 </head>
 <body>
+
+  <!-- 헤더/네비게이션 -->
   <header>
-    <div class="wrap inner">
-      <a href="#" class="logo" style="font-weight:800; font-size:18px; color:var(--brand)">SoloTour</a>
+    <div class="container nav">
+      <a class="logo" href="/">SoloTour</a>
       <nav>
-        <a href="#plans">상품</a>
+        <a href="#plans">요금</a>
         <a href="#itinerary">일정</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">문의</a>
+        <!-- 상단 메뉴 옆 카카오 버튼 -->
+        <a class="kakao-top" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">💬 카카오톡 상담</a>
       </nav>
     </div>
   </header>
 
+  <!-- 히어로 -->
   <section class="hero">
-    <div class="wrap inner">
-      <div>
-        <div class="kicker">베트남 맞선투어</div>
-        <h1>자연스러운 만남,<br/>베트남 솔로투어</h1>
-        <p class="lead">편안한 분위기에서 이뤄지는 소셜형 여행. 맞선투어 컨셉으로 로컬 문화와 교류를 함께 경험하세요.</p>
-        <div class="chips" style="margin-bottom:14px">
-          <span class="chip">소규모 그룹(4~8명)</span>
-          <span class="chip">현지 코디네이터</span>
-          <span class="chip">자유·선택형 일정</span>
-          <span class="chip">카카오채널 1:1</span>
-        </div>
-        <div class="cta">
-          <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">카카오로 문의하기</a>
-          <a class="btn outline" href="#plans">상품 살펴보기</a>
-        </div>
-      </div>
-      <div>
-        <img src="https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=1600&auto=format&fit=crop" alt="베트남 감성 여행 이미지" />
-      </div>
+    <div class="container">
+      <h1>자유롭고 따뜻한, 솔로투어</h1>
+      <p>간단한 상담부터 일정 설계까지. 카카오톡으로 언제든 편하게 문의하세요.</p>
+      <a class="cta" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">지금 카톡으로 상담하기</a>
     </div>
   </section>
 
-  <section id="plans" class="section wrap">
-    <h2 style="margin:0 0 8px">추천 상품</h2>
-    <p class="muted" style="margin:0 0 22px">가격은 시즌/항공가에 따라 변동될 수 있습니다. 세부 견적은 카카오채널로 문의 주세요.</p>
-    <div class="grid cols-3">
-      <div class="card">
-        <div class="badge">입문</div>
-        <h3 style="margin:10px 0 6px">베트남 3박4일 라이트</h3>
-        <p class="muted">도심 산책 · 카페 투어 · 문화 체험</p>
-        <p class="price">89만원 ~</p>
-        <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">문의/예약</a>
-      </div>
-      <div class="card">
-        <div class="badge">인기</div>
-        <h3 style="margin:10px 0 6px">베트남 4박5일 소셜투어</h3>
-        <p class="muted">맞선투어 교류 · 현지 미식 체험 · 카페 거리 산책</p>
-        <p class="price">119만원 ~</p>
-        <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">문의/예약</a>
-      </div>
-      <div class="card">
-        <div class="badge">프리미엄</div>
-        <h3 style="margin:10px 0 6px">베트남 5박6일 맞선투어</h3>
-        <p class="muted">소셜 미팅 · 로컬 문화 체험 · 맞춤형 코디네이션</p>
-        <p class="price">149만원 ~</p>
-        <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">문의/예약</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="itinerary" class="section" style="background:#f8fafc; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0">
-    <div class="wrap">
-      <h2 style="margin:0 0 8px">예시 일정 (베트남 맞선투어 4박5일)</h2>
-      <p class="muted" style="margin:0 0 22px">필수/선택 액티비티를 조합하는 자유로운 일정입니다. 현지 사정에 따라 변경될 수 있습니다.</p>
-      <div class="timeline">
-        <div class="tl">
-          <div class="muted">Day 1</div>
-          <div>
-            <div class="dot"></div>
-            <strong>입국 & 체크인</strong>
-            <div class="muted">환전/유심 지원 · 저녁 웰컴 미팅</div>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="muted">Day 2</div>
-          <div>
-            <div class="dot"></div>
-            <strong>소셜 네트워킹</strong>
-            <div class="muted">맞선투어 컨셉 소셜 교류 · 문화 체험</div>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="muted">Day 3</div>
-          <div>
-            <div class="dot"></div>
-            <strong>로컬 투어</strong>
-            <div class="muted">도심 탐방 · 전통 공연 · 미식 체험</div>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="muted">Day 4</div>
-          <div>
-            <div class="dot"></div>
-            <strong>자유 일정</strong>
-            <div class="muted">카페 · 쇼핑 · 개별 교류</div>
-          </div>
-        </div>
-        <div class="tl">
-          <div class="muted">Day 5</div>
-          <div>
-            <div class="dot"></div>
-            <strong>귀국</strong>
-            <div class="muted">공항 이동 및 출국</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <h2 style="margin:0 0 8px">이런 분께 추천해요</h2>
-    <ul class="muted" style="line-height:1.9; margin:0 0 22px; padding-left:18px">
-      <li>혼자도 부담 없이 자연스러운 교류를 원하는 분</li>
-      <li>관광보다 소셜 교류와 문화를 함께 경험하고 싶은 분</li>
-      <li>강요 없는 자유로운 분위기의 맞선투어를 원하는 분</li>
-    </ul>
-  </section>
-
-  <section id="faq" class="section wrap faq">
-    <h2 style="margin:0 0 8px">FAQ</h2>
-    <details>
-      <summary><strong>혼자 예약해도 되나요?</strong></summary>
-      <p class="muted">네. 대부분 혼자 신청하시며 현지에서 자연스럽게 어울립니다.</p>
-    </details>
-    <details>
-      <summary><strong>숙소는 어떻게 되나요?</strong></summary>
-      <p class="muted">3~4성급 호텔 위주로 배정하며, 1인실/2인실 선택이 가능합니다.</p>
-    </details>
-    <details>
-      <summary><strong>결제 및 환불 규정은?</strong></summary>
-      <p class="muted">예약금 결제 후 확정됩니다. 출발 D-7 이후 취소 시 일부 수수료가 발생할 수 있습니다.</p>
-    </details>
-    <details>
-      <summary><strong>강제 일정이나 소개팅 같은 게 있나요?</strong></summary>
-      <p class="muted">아니요. 강제 일정이나 소개팅은 없습니다. 자연스럽고 자유로운 교류를 지향합니다.</p>
-    </details>
-  </section>
-
-  <section id="contact" class="section" style="background:#f8fafc; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0">
-    <div class="wrap">
-      <h2 style="margin:0 0 8px">문의/예약</h2>
-      <p class="muted" style="margin:0 0 18px">카카오채널로 1:1 상담 또는 간단 신청서를 이용해 주세요.</p>
-      <div class="grid cols-3">
+  <!-- 요금 -->
+  <section id="plans">
+    <div class="container">
+      <h2>요금 안내</h2>
+      <p class="muted">아래 예시는 샘플입니다. 실제 상품에 맞춰 금액과 설명만 바꾸세요.</p>
+      <div class="grid grid-3" style="margin-top:16px">
         <div class="card">
-          <h3 style="margin:0 0 8px">카카오채널</h3>
-          <p class="muted">실시간으로 빠르게 답해드려요.</p>
-          <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">카카오로 문의</a>
+          <h3>베이직</h3>
+          <p class="muted">상담/일정 추천</p>
+          <p><b>₩0</b></p>
         </div>
         <div class="card">
-          <h3 style="margin:0 0 8px">간단 신청서</h3>
-          <p class="muted">희망 날짜/예산을 알려주세요.</p>
-          <a class="btn outline" href="https://forms.gle/your-form" target="_blank" rel="noopener">Google Form 열기</a>
+          <h3>스탠다드</h3>
+          <p class="muted">상담 + 일정 커스터마이징</p>
+          <p><b>₩149,000</b></p>
         </div>
         <div class="card">
-          <h3 style="margin:0 0 8px">상담 직통</h3>
-          <p class="muted">010-8221-7194 (평일 09:00~20:00)</p>
-          <a class="btn outline" href="tel:+821082217194">전화 걸기</a>
+          <h3>프리미엄</h3>
+          <p class="muted">동행 케어 + 예약 대행</p>
+          <p><b>맞춤 견적</b></p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 일정 -->
+  <section id="itinerary" style="background:#fafafa">
+    <div class="container">
+      <h2>일정 미리보기</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        <div class="card"><b>Day 1</b><br/><span class="muted">인천 → 하노이 / 체크인 & 로컬 투어</span></div>
+        <div class="card"><b>Day 2</b><br/><span class="muted">시티 투어 & 카페</span></div>
+        <div class="card"><b>Day 3</b><br/><span class="muted">현지 체험 & 자유시간</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>어떻게 상담하나요?</summary>
+        <div class="muted">상단 메뉴의 <b>💬 카카오톡 상담</b> 또는 오른쪽 아래 노란 버튼을 눌러주세요.</div>
+      </details>
+      <details>
+        <summary>환불 규정은 어떻게 되나요?</summary>
+        <div class="muted">상품별로 상이합니다. 상담 시 상세 안내드립니다.</div>
+      </details>
+      <details>
+        <summary>맞춤 일정 제작도 가능한가요?</summary>
+        <div class="muted">네, 예산/취향/일정에 맞춰 1:1로 설계해 드립니다.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 문의 -->
+  <section id="contact" style="background:#fafafa">
+    <div class="container">
+      <h2>문의</h2>
+      <p class="muted">카카오 상담이 가장 빠릅니다. 필요 시 아래 이메일로도 연락 주세요.</p>
+      <p><b>Email.</b> hello@solotour.co.kr</p>
+      <a class="cta" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">카톡으로 문의하기</a>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
   <footer>
-    <div class="wrap">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center">
-        <div>
-          <strong>SoloTour Vietnam</strong>
-          <p class="muted">사업자등록번호 395-33-01604 · 여행업 등록번호 0000-000호<br/>통신판매업 신고 0000-서울-0000 · 대표자 김동영</p>
-          <p class="muted">© 2025 SoloTour. All rights reserved.</p>
-        </div>
-        <div style="text-align:right">
-          <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">카카오로 문의하기</a>
-        </div>
-      </div>
+    <div class="container">
+      © <span id="y"></span> SoloTour · All rights reserved.
     </div>
   </footer>
 
-  <div class="cta-bar">
-    <a class="btn" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">1:1 카카오 상담</a>
-    <a class="btn outline" href="#plans">상품 보기</a>
-  </div>
+  <!-- 오른쪽 아래 플로팅 카카오 버튼 -->
+  <a class="kakao-float" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">💬 카카오톡 상담</a>
 
+  <script>
+    // 연도 자동 갱신
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
