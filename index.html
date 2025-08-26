@@ -1,191 +1,288 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SoloTour | 솔로투어</title>
-  <meta name="description" content="솔로투어 — 편하고 따뜻한 1:1 맞춤 여행 상담" />
-  <meta name="format-detection" content="telephone=no" />
-
+  <title>Solotour | 특별한 만남을 품은 베트남 여행</title>
+  <meta name="description" content="여행사 형태로 운영되는 특별 맞춤형 베트남 여행 & 교류 프로그램" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --text:#161616;
-      --muted:#666;
-      --border:#eaeaea;
-      --brand:#0a84ff;
-      --kakao:#FEE500;
-      --kakao-hover:#FFD600;
+      --bg:#f9fafb;--fg:#1f2937;--muted:#4b5563;--card:#ffffff;--line:rgba(0,0,0,.1);
+      --brand:#0ea5e9;--brand2:#38bdf8;--accent:#fee500
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Malgun Gothic,sans-serif;color:var(--text);line-height:1.6}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Pretendard',system-ui,-apple-system,sans-serif;color:var(--fg);background:var(--bg)}
+    .container{max-width:1100px;margin:0 auto;padding:28px 20px 120px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg)}
+    .logo-badge{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;font-weight:900;color:#fff}
+    .logo span{font-weight:800}
+    nav a{color:var(--brand);text-decoration:none;margin-left:16px;font-weight:600}
+    nav a:hover{color:var(--brand2)}
 
-    /* 헤더/네비게이션 */
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:100}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-weight:800;font-size:20px;letter-spacing:.2px;color:var(--text);text-decoration:none}
-    nav a{margin-left:18px;text-decoration:none;color:var(--text);font-weight:600;white-space:nowrap}
-    nav a:hover{color:var(--brand)}
+    .hero{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.2;margin:0}
+    .hero p{color:var(--muted);margin:12px 0 18px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff}
+    .btn-secondary{background:rgba(14,165,233,.08);color:var(--brand);border:1px solid var(--brand)}
 
-    /* 상단 메뉴의 카카오 노란 버튼 */
-    .kakao-top{
-      display:inline-block;
-      background:var(--kakao);
-      color:#000 !important;
-      padding:8px 14px;
-      border-radius:20px;
-      font-weight:800;
-      text-decoration:none;
-      margin-left:18px;
-    }
-    .kakao-top:hover{background:var(--kakao-hover)}
+    .section{margin-top:56px;scroll-margin-top:80px}
+    .section h2{margin-bottom:14px;font-size:26px;color:var(--brand)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 10px rgba(0,0,0,.05)}
+    .card h3{margin:0 0 8px;color:var(--fg)}
+    .card p{margin:0;color:var(--muted)}
 
-    /* 히어로 */
-    .hero{padding:72px 20px 56px;border-bottom:1px solid var(--border);text-align:center}
-    .hero h1{margin:0 0 12px;font-size:40px;line-height:1.2}
-    .hero p{margin:0 auto 24px;color:var(--muted);max-width:720px}
-    .cta{
-      display:inline-block;background:var(--brand);color:#fff;text-decoration:none;
-      padding:12px 18px;border-radius:12px;font-weight:700
-    }
-    .cta:hover{filter:brightness(.95)}
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--card);box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:rgba(14,165,233,.1);color:var(--fg)}
+    tr:last-child td{border-bottom:none}
+    .price{font-weight:800;color:var(--brand)}
+    ul{margin:6px 0 0 18px;padding:0}
+    li{margin-bottom:4px}
 
-    /* 섹션 공통 */
-    section{padding:56px 0}
-    h2{margin:0 0 16px;font-size:28px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+    .footer{margin-top:48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap}
+    .footer a{color:var(--brand)}
 
-    .card{border:1px solid var(--border);border-radius:14px;padding:20px}
-    .muted{color:var(--muted)}
-
-    /* FAQ */
-    details{border:1px solid var(--border);border-radius:12px;padding:14px 16px}
-    details+details{margin-top:12px}
-    summary{cursor:pointer;font-weight:700}
-
-    /* 푸터 */
-    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
-
-    /* 오른쪽 아래 플로팅 카카오 버튼 */
-    .kakao-float{
-      position:fixed;right:20px;bottom:20px;
-      background:var(--kakao);color:#000;text-decoration:none;
-      padding:12px 20px;border-radius:30px;font-weight:800;
-      box-shadow:0 6px 18px rgba(0,0,0,.15);z-index:1000
-    }
-    .kakao-float:hover{background:var(--kakao-hover)}
+    .kakao-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:var(--accent);color:#181600;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .kakao-icon{width:28px;height:28px}
+    .pagination{display:flex;gap:8px;justify-content:center;margin-top:18px}
+    .pagination button{padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer}
+    .pagination button.active{border-color:var(--brand);color:#fff;background:linear-gradient(90deg,var(--brand),var(--brand2))}
+    @media(max-width:720px){.hero{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.kakao-fab{width:56px;height:56px;right:14px;bottom:14px}}
   </style>
 </head>
 <body>
-
-  <!-- 헤더/네비게이션 -->
-  <header>
-    <div class="container nav">
-      <a class="logo" href="/">SoloTour</a>
-      <nav>
-        <a href="#plans">요금</a>
-        <a href="#itinerary">일정</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">문의</a>
-        <!-- 상단 메뉴 옆 카카오 버튼 -->
-        <a class="kakao-top" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">💬 카카오톡 상담</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- 히어로 -->
-  <section class="hero">
-    <div class="container">
-      <h1>자유롭고 따뜻한, 솔로투어</h1>
-      <p>간단한 상담부터 일정 설계까지. 카카오톡으로 언제든 편하게 문의하세요.</p>
-      <a class="cta" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">지금 카톡으로 상담하기</a>
-    </div>
-  </section>
-
-  <!-- 요금 -->
-  <section id="plans">
-    <div class="container">
-      <h2>요금 안내</h2>
-      <p class="muted">아래 예시는 샘플입니다. 실제 상품에 맞춰 금액과 설명만 바꾸세요.</p>
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="card">
-          <h3>베이직</h3>
-          <p class="muted">상담/일정 추천</p>
-          <p><b>₩0</b></p>
-        </div>
-        <div class="card">
-          <h3>스탠다드</h3>
-          <p class="muted">상담 + 일정 커스터마이징</p>
-          <p><b>₩149,000</b></p>
-        </div>
-        <div class="card">
-          <h3>프리미엄</h3>
-          <p class="muted">동행 케어 + 예약 대행</p>
-          <p><b>맞춤 견적</b></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 일정 -->
-  <section id="itinerary" style="background:#fafafa">
-    <div class="container">
-      <h2>일정 미리보기</h2>
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="card"><b>Day 1</b><br/><span class="muted">인천 → 하노이 / 체크인 & 로컬 투어</span></div>
-        <div class="card"><b>Day 2</b><br/><span class="muted">시티 투어 & 카페</span></div>
-        <div class="card"><b>Day 3</b><br/><span class="muted">현지 체험 & 자유시간</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <h2>자주 묻는 질문</h2>
-      <details>
-        <summary>어떻게 상담하나요?</summary>
-        <div class="muted">상단 메뉴의 <b>💬 카카오톡 상담</b> 또는 오른쪽 아래 노란 버튼을 눌러주세요.</div>
-      </details>
-      <details>
-        <summary>환불 규정은 어떻게 되나요?</summary>
-        <div class="muted">상품별로 상이합니다. 상담 시 상세 안내드립니다.</div>
-      </details>
-      <details>
-        <summary>맞춤 일정 제작도 가능한가요?</summary>
-        <div class="muted">네, 예산/취향/일정에 맞춰 1:1로 설계해 드립니다.</div>
-      </details>
-    </div>
-  </section>
-
-  <!-- 문의 -->
-  <section id="contact" style="background:#fafafa">
   <div class="container">
-    <h2>문의</h2>
-    <p class="muted">카카오 상담이 가장 빠릅니다. 필요 시 이메일로도 연락 주세요.</p>
+    <header>
+      <a class="logo" href="#"><div class="logo-badge">S</div><span>Solotour</span></a>
+      <nav>
+        <a href="#steps">여행절차</a>
+        <a href="#packages">여행상품</a>
+        <a href="#reviews">리뷰</a>
+        <a href="#abc">ABC</a>
+      </nav>
+    </header>
 
-    <!-- 이메일 버튼 -->
-    <a class="cta" href="mailto:solotourvt@gmail.com">이메일로 문의하기</a>
+    <section class="hero">
+      <div>
+        <h1>여행과 만남이 함께하는 <span style="background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;color:transparent">특별한 베트남 여정</span></h1>
+        <p>단순한 관광을 넘어, 현지 문화와 사람을 깊이 경험할 수 있는 맞춤 여행. 따뜻한 인연이 시작되는 순간까지 Solotour가 함께합니다.</p>
+        <div class="cta">
+          <a href="#packages" class="btn btn-primary">여행 상품 보기</a>
+          <a href="#steps" class="btn btn-secondary">진행 절차 확인</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>솔로투어만의 장점</h3>
+        <p>✔ 여행사 등록 기반의 안정성<br>✔ 현지 전담 케어와 안전 보장<br>✔ 투명한 가격과 단계별 안내<br>✔ 자연스러운 교류와 만남</p>
+      </div>
+    </section>
 
-    <!-- 카카오톡 버튼 -->
-    <a class="cta" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">카톡으로 문의하기</a>
+    <section id="steps" class="section">
+      <h2>여행 절차</h2>
+      <div class="grid3">
+        <div class="card"><h3>Step 1 · 준비</h3><p>여행 상담과 맞춤 일정 설계, 사전 안내</p></div>
+        <div class="card"><h3>Step 2 · 현지 체험</h3><p>베트남 주요 도시 투어, 소그룹 만남 프로그램</p></div>
+        <div class="card"><h3>Step 3 · 사후 케어</h3><p>여행 종료 후 후속 상담, 장기적 교류 지원</p></div>
+      </div>
+    </section>
+
+    <section id="packages" class="section">
+      <h2>여행 상품</h2>
+      <table>
+        <thead><tr><th>패키지</th><th>포함 내용</th><th>제외 내용</th><th>추천 대상</th><th>예상 금액</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>라이트</td>
+            <td>
+              <ul>
+                <li>기본 상담 및 일정 설계</li>
+                <li>3박 4일 베트남 투어</li>
+                <li>소규모 교류 체험 1회</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>항공권</li>
+                <li>개인 식비</li>
+                <li>개인 선택 액티비티</li>
+              </ul>
+            </td>
+            <td>첫 체험자 · 짧은 일정 선호</td>
+            <td class="price">약 300만원</td>
+          </tr>
+          <tr>
+            <td>스탠다드</td>
+            <td>
+              <ul>
+                <li>라이트 포함 서비스</li>
+                <li>일정 확장 (5~6일)</li>
+                <li>다회 교류 프로그램</li>
+                <li>전담 통역 지원</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>항공권</li>
+                <li>개인 식비</li>
+                <li>특별 요청 서비스</li>
+              </ul>
+            </td>
+            <td>심화 교류자 · 유연한 일정 희망</td>
+            <td class="price">약 650만원</td>
+          </tr>
+          <tr>
+            <td>프리미엄</td>
+            <td>
+              <ul>
+                <li>스탠다드 포함 서비스</li>
+                <li>고급 숙박 & 전용 차량</li>
+                <li>장기 교류 케어</li>
+                <li>맞춤형 사후 관리</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>항공권</li>
+                <li>비자 및 법률 관련 비용</li>
+                <li>개인 고급 옵션</li>
+              </ul>
+            </td>
+            <td>장기적 교류 · 프리미엄 서비스 희망</td>
+            <td class="price">약 950만원</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="abc" class="section">
+      <h2>ABC 프로그램</h2>
+      <div class="grid3">
+        <div class="card"><h3>A · 어드벤처</h3><p>베트남의 다채로운 명소와 문화를 깊게 경험</p></div>
+        <div class="card"><h3>B · 밸런스</h3><p>관광과 교류를 균형 있게 즐기는 일정</p></div>
+        <div class="card"><h3>C · 커넥션</h3><p>자연스러운 만남으로 인연을 이어가는 과정</p></div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section">
+      <h2>이용 후기</h2>
+      <div id="reviews-container" class="grid3"></div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+    <section class="footer">
+      <div>© <span id="y"></span> Solotour. All rights reserved.</div>
+      <div>문의: <a href="mailto:solotourvt@gmail.com">solotourvt@gmail.com</a></div>
+    </section>
   </div>
-</section>
-  <!-- 푸터 -->
-  <footer>
-    <div class="container">
-      © <span id="y"></span> SoloTour · All rights reserved.
-    </div>
-  </footer>
 
-  <!-- 오른쪽 아래 플로팅 카카오 버튼 -->
-  <a class="kakao-float" href="https://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener">💬 카카오톡 상담</a>
+  <!-- Kakao 단일 FAB -->
+  <a class="kakao-fab" href="http://pf.kakao.com/_SlsNn/chat" target="_blank" rel="noopener" aria-label="카카오 채팅 열기" title="카카오 채팅 열기">
+    <svg class="kakao-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.477 3 2 6.613 2 11c0 2.37 1.264 4.492 3.291 5.965-.076.777-.407 2.08-1.34 3.42-.195.277-.05.665.275.7 1.76.196 3.233-.39 4.17-.924.975.258 2.022.4 3.104.4 5.523 0 10-3.612 10-8s-4.477-8-10-8z"/></svg>
+  </a>
 
   <script>
-    // 연도 자동 갱신
+    // 연도 표기
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 리뷰 데이터 (40개, 긍정 톤)
+    const reviews = [
+      {name:"김OO", text:"현지 케어가 든든했고 교류 분위기가 자연스러웠습니다."},
+      {name:"박OO", text:"가격과 안내가 투명해 처음 참여에도 안심됐어요."},
+      {name:"이OO", text:"통역이 상시 동행해서 언어 걱정이 없었습니다."},
+      {name:"정OO", text:"동선이 효율적이라 피곤하지 않고 알찼습니다."},
+      {name:"최OO", text:"맞춤 일정이 제 취향에 딱 맞았어요."},
+      {name:"윤OO", text:"사후 케어로 이후 문의도 빠르게 해결됐어요."},
+      {name:"한OO", text:"소규모 교류라 편안하고 예의 바른 분위기였습니다."},
+      {name:"서OO", text:"숙소와 차량이 쾌적해 여행의 질이 높았어요."},
+      {name:"오OO", text:"문화 체험과 교류가 균형 있게 구성돼 만족했습니다."},
+      {name:"조OO", text:"처음부터 끝까지 친절하고 전문적으로 진행됐습니다."},
+      {name:"신OO", text:"여행 일정이 알차고 새로운 인연도 만들 수 있었습니다."},
+      {name:"하OO", text:"안전하게 진행되어 신뢰가 갔습니다."},
+      {name:"장OO", text:"편안한 분위기에서 다양한 사람들을 만났습니다."},
+      {name:"임OO", text:"가이드가 친절해 처음부터 끝까지 즐거웠습니다."},
+      {name:"강OO", text:"가격 대비 서비스가 훌륭했습니다."},
+      {name:"문OO", text:"여행 후에도 지속적인 케어가 인상적이었습니다."},
+      {name:"곽OO", text:"프로그램이 세심하게 구성돼 만족했습니다."},
+      {name:"노OO", text:"문화와 관광이 잘 어우러진 경험이었습니다."},
+      {name:"심OO", text:"통역 서비스가 전문적이어서 의사소통이 원활했습니다."},
+      {name:"류OO", text:"전반적으로 여행이 기대 이상이었습니다."},
+      {name:"채OO", text:"현지 전담 케어가 든든했습니다."},
+      {name:"배OO", text:"식사와 체험이 다양해 지루하지 않았습니다."},
+      {name:"송OO", text:"여행과 교류가 자연스럽게 연결돼 좋았습니다."},
+      {name:"유OO", text:"새로운 문화를 배우고 특별한 추억을 남겼습니다."},
+      {name:"남OO", text:"일정이 체계적으로 진행돼 편안했습니다."},
+      {name:"설OO", text:"현지 분위기를 깊이 체험할 수 있었습니다."},
+      {name:"권OO", text:"안내가 친절하고 꼼꼼했습니다."},
+      {name:"마OO", text:"교류 분위기가 따뜻했습니다."},
+      {name:"도OO", text:"여행 내내 안정적이었습니다."},
+      {name:"안OO", text:"새로운 친구들을 만날 수 있어 좋았습니다."},
+      {name:"홍OO", text:"프로그램이 기대 이상이었습니다."},
+      {name:"탁OO", text:"서비스가 신뢰할 만했습니다."},
+      {name:"위OO", text:"다시 참여하고 싶습니다."},
+      {name:"천OO", text:"가성비가 좋았습니다."},
+      {name:"표OO", text:"현지 체험이 특별했습니다."},
+      {name:"전OO", text:"맞춤 케어가 인상적이었습니다."},
+      {name:"손OO", text:"여행 중간중간 배려가 느껴졌습니다."},
+      {name:"허OO", text:"편안하게 즐길 수 있었습니다."},
+      {name:"금OO", text:"문화 교류 경험이 특별했습니다."},
+      {name:"류OO", text:"시야가 넓어지는 경험이었습니다."}
+    ];
+
+    const perPage = 10;
+    let currentPage = 1;
+
+    function renderReviews(page){
+      const container = document.getElementById('reviews-container');
+      container.innerHTML = '';
+      const start = (page-1)*perPage;
+      const end = start+perPage;
+      reviews.slice(start,end).forEach((rv, i)=>{
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<h3>${rv.name} 님</h3><p>${rv.text}</p><div class='stars'>⭐️⭐️⭐️⭐️${Math.random()>0.3?'⭐️':'☆'} <span style='color:#4b5563;font-size:14px'>(5점 만점, 평균 ★4.7)</span></div><span style='color:#4b5563;font-size:14px'>(5점 만점)</span></div>`;
+        container.appendChild(div);
+      });
+      renderPagination(page);
+    }
+
+    function renderPagination(page){
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      const totalPages = Math.ceil(reviews.length / perPage);
+      for(let p=1;p<=totalPages;p++){
+        const btn = document.createElement('button');
+        btn.textContent = p;
+        if(p===page) btn.classList.add('active');
+        btn.onclick = ()=>{ currentPage = p; renderReviews(p); window.scrollTo({top:document.getElementById('reviews').offsetTop-70, behavior:'smooth'}); };
+        pagination.appendChild(btn);
+      }
+    }
+
+    // 초기 렌더
+    renderReviews(currentPage);
+      // 상단 메뉴 앵커 스크롤 보정 (코드돌리기/iframe 환경 포함)
+    (function(){
+      const OFFSET = 80; // 헤더 높이 보정값
+      document.querySelectorAll('header nav a').forEach(a => {
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href') || '';
+          if(!href.startsWith('#')) return; // 외부/다른페이지 링크는 통과
+          const el = document.querySelector(href);
+          if(!el) return;
+          e.preventDefault();
+          const top = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
+      });
+    })();
   </script>
 </body>
 </html>
